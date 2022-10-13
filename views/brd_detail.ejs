@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상세페이지</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include("common/header.ejs") %>
+    <div id="container">
+        <%- include("common/banner.ejs") %>
+        <div class="cont2">
+            <div class="center">
+                <h3>기업소식</h3>
+                <p class="numbers">No.<%- data.brdid %></p>
+                <div class="brd_detail">
+                    <div class="detail_title"><%- data.brdtitle%></div>
+                    <div class="detail_context"><%- data.brdcontext%></div>
+                </div>
+                <div class="btnWrap_detail">
+                    <a class="utpbtn" href="/uptview/<%- data.brdid%>">수정</a>
+                    <a id="delbtn" href="/delete/<%- data.brdid%>">삭제</a>
+                </div>
+                <a class="listbtn" href="/list">목록</a>
+            </div>
+        </div>
+       
+        
+    </div>
+    <%- include("common/footer.ejs") %>
+    <script>
+         const delBtn = document.querySelector("#delbtn"); //삭제역할 a태그
+            delBtn.addEventListener("click",function(event){
+             let test = window.confirm("게시글을 삭제하시겠습니까?");
+             console.log(test);
+             //confirm()함수에서 확인을 누르면 true 값, 취소를 누르면 false 값
+            if(test === false){
+                //페이지 이동 방지 
+                event.preventDefault();
+            }
+             //del 버튼을 누르면 컨펌창이 열리고 확인을 누르면 그때 a 태그의 href 주소로 이동
+        });
+    </script>
+</body>
+</html>

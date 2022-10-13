@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include("common/header.ejs") %>
+    <div id="container">
+        <%- include("common/banner.ejs") %>
+        <div class="cont2">
+            <div class="center">
+                <h3>문의하기</h3>
+                <p class="subtext">자연테크 제품에 대한 <span>궁금한 사항이나 관련 자료</span>가 필요하신분들은 문의 글을 남겨주세요.
+                    <br>담당자 확인 후 전화나 메일로 답변을 드리겠습니다. 
+                </p>
+                <form action="/add" method="post">
+                    <div class="Wrap">
+                        <p>작성자</p>
+                        <input type="text" name="auther" value="">
+                    </div>
+                    <div class="Wrap">
+                        <p>제목</p>
+                        <input type="text" name="title" value="">
+                    </div>
+                    <div class="bigWrap">
+                        <p>문의사항</p>
+                        <textarea name="context"></textarea>
+                    </div>
+                    <div class="btnWrap">
+                        <button class="que" type="submit">문의하기</button>
+                        <button class="cancel" type="text">취소</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <%- include("common/footer.ejs") %>
+
+    <script>
+        const canbtn = document.querySelector(".canael");
+
+        canbtn.addEventListener("click",function(e){
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>

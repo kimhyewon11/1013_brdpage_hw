@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판 목록</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+    <%- include("common/header.ejs") %>
+    <div id="container">
+        <%- include("common/banner.ejs") %>
+        <div class="cont2">
+            <div class="center">
+                <h3>기업소식</h3>
+                <div class="searchWrap">
+                    <p class="total">Total : <%- data.length%></p>
+                    <div class="searchWrap">
+                        <select >
+                            <option>제목</option>
+                        </select>
+                        <input type="text">
+                        <button>검색</button>
+                    </div>
+                </div>
+                <table class="tb1">
+                    <tr class="line1">
+                        <th class="num">번호</th>
+                        <th class="tit">제목</th>
+                        <th class="au">작성자</th>
+                        <th class="time">작성 시간</th>
+                        <th class="see">조회수</th>
+                    </tr>
+                    <% for(let i = 0;i < data.length ; i++ ) { %>
+                        <tr class="line2">
+                            <td class="num"><a href="/detail/<%- data[i].brdid %>"> <%- data[i].brdid %></a></td>
+                            <td class="tit"><a href="/detail/<%- data[i].brdid %>"><%- data[i].brdtitle %></a></td>
+                            <td class="au"><%- data[i].brdauther %></td>
+                            <td class="time"><%- data[i].brdtime %></td>
+                            <td class="see"><%- data[i].brdviews  %></td>
+                        </tr>
+                    <% } %>    
+                    
+                </table>
+                <a class="btn" href="/insert" >글쓰기</a>
+
+            </div>
+        </div>
+    </div>   
+    <%- include("common/footer.ejs") %>
+ 
+</body>
+</html>

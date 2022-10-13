@@ -1,0 +1,9 @@
+* { margin:0; padding:0;}
+ul,ol,li { list-style:none;}
+a { text-decoration:none;}
+img,video { vertical-align:top;}
+table { border-collapse:collapse;}
+body { line-height:1;}
+input,select { border:none; outline: none;}
+textarea {outline: none; resize: none;}
+.clear_fix::after { content:""; display:block; clear:both;}
